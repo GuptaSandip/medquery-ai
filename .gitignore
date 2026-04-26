@@ -1,0 +1,46 @@
+# Environment — NEVER push
+backend/.env
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.Python
+
+# Virtual environments
+.venv/
+venv/
+backend/.venv/
+
+# Database — never push
+backend/*.db
+backend/chroma_db/
+backend/uploads/
+*.db
+chroma_db/
+uploads/
+medquery.db
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Build
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# UV
+.uv/
+backend/.uv/
+
+# Unknown files
+imp
