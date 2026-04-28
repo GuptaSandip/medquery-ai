@@ -1,19 +1,17 @@
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEndpointEmbeddings
+from config import settings
 
-# Singleton pattern — load model once
 _embedding_model = None
 
-def get_embedding_model() -> HuggingFaceEmbeddings:
-    """Get or create embedding model (loaded once)"""
+def get_embedding_model():
     global _embedding_model
 
     if _embedding_model is None:
-        print("⏳ Loading embedding model...")
-        _embedding_model = HuggingFaceEmbeddings(
-            model_name="all-MiniLM-L6-v2",
-            model_kwargs={"device": "cpu"},
-            encode_kwargs={"normalize_embeddings": True}
+        print("⏳ Connecting to HuggingFace Inference API...")
+        _embedding_model = HuggingFaceEndpointEmbeddings(
+            model="sentence-transformers/all-MiniLM-L6-v2",
+            huggingfacehub_api_token=settings.HF_TOKEN
         )
-        print("✅ Embedding model loaded!")
+        print("✅ HuggingFace Embedding API ready!")
 
     return _embedding_model

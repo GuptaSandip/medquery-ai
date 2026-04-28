@@ -35,6 +35,7 @@ class Settings(BaseSettings):
     UPLOAD_DIR: str = str(BASE_DIR / "uploads")   # ✅ better path handling
     MAX_FILE_SIZE_MB: int = 10
     CHROMA_DB_PATH: str = str(BASE_DIR / "chroma_db")
+    HF_TOKEN: str = ""
 
     class Config:
         env_file = BASE_DIR / ".env"
