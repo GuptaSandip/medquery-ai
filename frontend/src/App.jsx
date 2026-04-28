@@ -32,11 +32,18 @@ import ProfilePage   from "./pages/private/ProfilePage";
 // Admin
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
+// Replace DashboardLayout function with this
 function DashboardLayout({ children }) {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <DashboardNav />
-      <main className="flex-1 ml-64">{children}</main>
+      {/* lg:ml-64 adds margin only on desktop */}
+      <main className="flex-1 lg:ml-64 min-w-0">
+        {/* pt-16 adds top padding on mobile for hamburger button */}
+        <div className="pt-4 lg:pt-0">
+          {children}
+        </div>
+      </main>
     </div>
   );
 }
